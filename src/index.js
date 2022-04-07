@@ -2,5 +2,6 @@
 import App from './components/App.js';
 ReactDOM.render(<App />, document.getElementById('app'));
 
-import VideoList from './components/VideoList.js';
-ReactDOM.render(<VideoList />, document.getElementById('VideoList'));
+ReactDOM.render(<App />, document.getElementById('app'));
+
+
