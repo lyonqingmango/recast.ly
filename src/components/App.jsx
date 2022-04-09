@@ -23,17 +23,20 @@ class App extends React.Component {
   }
 
   onSearch(search) {
-    searchYoutube(search, (data) => this.setState({
+    searchYouTube(search, (data) => this.setState({
       exampleData: data,
+      selectedVideo: data[0],
     }));
   }
 
-  // componentDidMount() {
-  //   searchYouTube('cows', (data) => this.setState({
-  //     exampleData: data,
-  //     selectedVideo: data[0],
-  //   }));
+  // debounce(func, timeout = 300) {
+  //   let timer;
+  //   return (...args) => {
+  //     clearTimeout(timer);
+  //     timer = setTimeout(() => { func.apply(this, args); }, timeout);
+  //   };
   // }
+
 
   render() {
     return (
