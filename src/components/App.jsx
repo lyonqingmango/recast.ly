@@ -6,16 +6,13 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedVideo: exampleVideoData[0]
+      selectedVideo: exampleVideoData[0],
+      exampleData: exampleVideoData,
     };
   }
 
-  onClickVideo(event) {
-    console.log(event);
-    console.log(event.target);
-    var title = event.target;
-    console.log(title.innerHTML);
-    this.setState({selectedVideo: exampleVideoData[1]});
+  onClickVideo(video) {
+    this.setState({selectedVideo: video});
   }
 
   render() {
@@ -31,7 +28,7 @@ class App extends React.Component {
             <div><h5><VideoPlayer video={this.state.selectedVideo}/></h5></div>
           </div>
           <div className="col-md-5">
-            <div><h5 onClickVideo={this.onClickVideo.bind(this)}><VideoList videos={exampleVideoData} /></h5></div>
+            <div><h5><VideoList videos={this.state.exampleData} onClickVideo={this.onClickVideo.bind(this)}/></h5></div>
           </div>
         </div>v
       </div>
