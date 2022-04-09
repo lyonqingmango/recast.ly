@@ -1,18 +1,26 @@
 import VideoList from './VideoList.js';
 import exampleVideoData from '../data/exampleVideoData.js';
 import VideoPlayer from './VideoPlayer.js';
+import searchYouTube from '../lib/searchYoutube.js';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      exampleData: [],
       selectedVideo: exampleVideoData[0],
-      exampleData: exampleVideoData,
     };
   }
 
   onClickVideo(video) {
     this.setState({selectedVideo: video});
+  }
+
+  componentDidMount() {
+    searchYouTube('cows', (data) => this.setState({
+      exampleData: data,
+      selectedVideo: data[0],
+    }));
   }
 
   render() {

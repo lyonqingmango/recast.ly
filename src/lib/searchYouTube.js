@@ -12,8 +12,9 @@ var searchYouTube = (query, callback) => {
   $.ajax({
     url: server,
     type: 'GET',
-    data: {q: query},
-    success: callback,
+    data: {q: query, youtube_api_key: YOUTUBE_API_KEY},
+    success: (data) => callback(data),
+    error: (error) => console.log(error)
   });
 };
 
